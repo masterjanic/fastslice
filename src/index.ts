@@ -62,7 +62,10 @@ Bun.serve({
         const key = [
           input.url,
           input.layer_height,
-          input.infill,
+          input.fill_density,
+          input.fill_pattern,
+          input.filament_density,
+          input.filament_cost,
           input.support_enable,
         ].join(":");
 
@@ -129,9 +132,16 @@ const runSliceJob = async (key: string, request: SliceRequest) => {
         "--layer-height",
         `${request.layer_height}`,
         "--fill-density",
-        `${request.infill / 100}`,
-        "--supports-enable",
-        "--support-material",
+        `${request.fill_density}`,
+        "--fill-pattern",
+        request.fill_pattern,
+        "--filament-density",
+        `${request.filament_density}`,
+        "--filament-cost",
+        `${request.filament_cost}`,
+        ...(request.support_enable
+          ? ["--supports-enable", "--support-material"]
+          : []),
         "-o",
         "Model.gcode",
       ],

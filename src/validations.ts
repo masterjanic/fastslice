@@ -32,20 +32,35 @@ export const SliceRequestSchema = z.object({
    */
   layer_height: z.coerce.number().positive().min(0.08).max(0.3),
   /**
-   * Infill percentage.
-   * Must be between 1 and 100.
+   * Fill density.
+   * Must be between 0 and 1.
    */
-  infill: z.coerce.number().int().positive().min(1).max(100),
+  fill_density: z.coerce.number().min(0).max(1),
   /**
    * Whether to enable support structures.
    * Default is true.
    */
-  support_enable: z.coerce.boolean().default(true),
+  support_enable: z.coerce.boolean().optional().default(true),
   /**
    * URL to send the report to.
    * Must be a publically accessible URL.
    */
   report_to: z.url(),
+  // Printer specific settings
+  fill_pattern: z
+    .enum(["grid", "rectilinear", "monotonic"])
+    .optional()
+    .default("grid"),
+  /**
+   * Filament density in grams per cubic millimeter.
+   * Used to calculate the total filament cost.
+   */
+  filament_density: z.coerce.number().min(0).optional().default(0),
+  /**
+   * Filament cost in euros per kilogram.
+   * Used to calculate the total filament cost.
+   */
+  filament_cost: z.coerce.number().min(0).optional().default(0),
 });
 
 export type SliceRequest = z.infer<typeof SliceRequestSchema>;

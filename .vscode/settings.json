@@ -1,0 +1,17 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit",
+    "source.fixAll.biome": "explicit",
+    "source.removeUnusedImports": "explicit"
+  },
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "biome.lsp.bin": "./node_modules/@biomejs/biome/bin/biome",
+  "biome.configurationPath": "./biome.jsonc",
+  "copyrighter.author": "Janic Bellmann",
+  "copyrighter.license": "GPL3",
+  "copyrighter.newFilesOnly": false
+  //"explorer.excludeGitIgnore": true
+}

@@ -1,0 +1,10 @@
+services:
+  fastslice:
+    build:
+      context: .
+    ports:
+      - 3001:3001
+    environment:
+      - MAX_FILE_SIZE_BYTES=314572800
+      - PORT=3001
+      - DEBUG=true

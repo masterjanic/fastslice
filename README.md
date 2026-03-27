@@ -4,10 +4,7 @@ Small **Bun** HTTP worker that accepts slice jobs over the network: it downloads
 
 ## Demo
 
-<video width="600" controls>
-  <source src=".github/assets/demo.webm" type="video/webm">
-  Your browser does not support the video tag.
-</video>
+![Demo](.github/assets/demo.gif)
 
 ## What you need
 

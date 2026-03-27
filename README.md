@@ -4,7 +4,10 @@ Small **Bun** HTTP worker that accepts slice jobs over the network: it downloads
 
 ## Demo
 
-<video src="https://raw.githubusercontent.com/masterjanic/fastslice/main/.github/assets/demo.webm" controls playsinline muted width="100%"></video>
+<video width="600" controls>
+  <source src=".github/assets/demo.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
 
 ## What you need
 

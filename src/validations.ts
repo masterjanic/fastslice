@@ -38,9 +38,12 @@ export const SliceRequestSchema = z.object({
   fill_density: z.coerce.number().min(0).max(1),
   /**
    * Whether to enable support structures.
-   * Default is true.
+   * Default is false.
    */
-  support_enable: z.coerce.boolean().optional().default(true),
+  support_enable: z.preprocess(
+    (val) => ("boolean" === typeof val ? val : "true" === val),
+    z.boolean(),
+  ),
   /**
    * URL to send the report to.
    * Must be a publically accessible URL.
